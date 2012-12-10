@@ -6,23 +6,26 @@ An abstract flow publisher and subscriber.
 
 It supports the following transports: 
 
-- RabbitMQ.
-- Redis. 
+- RabbitMQ
+- Redis
 
 ## Configuration
 
 Insert in your Gemfile:
 
+    gem 'bunny' # for RabbitMQ transport
+    gem 'hiredis' # for Redis transport
+    gem 'redis', require: ['redis', 'redis/connection/hiredis'] # for Redis transport
     gem 'waffle', :gem => 'git://github.com/undr/waffle.git'
 
-and create config file:
+Create config file:
 
     production:
       transport: rabbitmq
       encoder: marshal
       url: amqp://anyhost.com:5678
 
-and load config file:
+and load it:
 
     Waffle.configure(:path => 'config/waffle.yml')
 
