@@ -47,7 +47,7 @@ describe Waffle do
       specify{Waffle.config.transport.should == 'redis'}
     end
   end
-  
+
   context do
     before do
       Waffle.configure

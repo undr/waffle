@@ -1,15 +1,13 @@
-require 'yajl'
-
 module Waffle
   module Encoders
     module Json
       module_function
       def encode message
-        Yajl::Encoder.encode(message)
+        ::MultiJson.encode(message)
       end
 
       def decode message
-        Yajl::Parser.parse(message)
+        ::MultiJson.decode(message)
       end
     end
   end

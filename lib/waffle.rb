@@ -1,13 +1,12 @@
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require 'rubygems'
-require 'bundler'
-environment = defined?(Rails) && Rails.respond_to?(:env) ? Rails.env : (ENV['RACK_ENV'] || 'development')
-Bundler.require :default, environment.to_sym
+require 'bundler/setup'
 require 'waffle/version'
+require 'multi_json'
 require 'time'
 
 module Waffle
-  extend self 
+  extend self
   module Transports
     autoload :Base, 'waffle/transports/base'
     autoload :Rabbitmq, 'waffle/transports/rabbitmq' if defined?(Bunny)
@@ -27,7 +26,7 @@ module Waffle
   end
 
   module Encoders
-    autoload :Json, 'waffle/encoders/json' if defined?(Yajl)
+    autoload :Json, 'waffle/encoders/json'
     autoload :Marshal, 'waffle/encoders/marshal'
   end
 
