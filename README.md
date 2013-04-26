@@ -17,6 +17,8 @@ Insert in your Gemfile:
     gem 'hiredis' # for Redis transport
     gem 'redis', require: ['redis', 'redis/connection/hiredis'] # for Redis transport
     gem 'waffle', :gem => 'git://github.com/undr/waffle.git'
+    
+**Warning!** Gem 'waffle' must follow gems 'bunny' and 'redis' in Gemfile.
 
 Create config file:
 
