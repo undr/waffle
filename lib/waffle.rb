@@ -28,6 +28,7 @@ module Waffle
   module Encoders
     autoload :Json, 'waffle/encoders/json'
     autoload :Marshal, 'waffle/encoders/marshal'
+    autoload :Noop, 'waffle/encoders/noop'
   end
 
   def reset_config!
